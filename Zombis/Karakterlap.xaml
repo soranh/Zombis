@@ -1,0 +1,109 @@
+﻿<Window x:Class="Zombis.Karakterlap"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+        Title="Karakterlap" Height="600" Width="800" ResizeMode="NoResize" Background="LightGoldenrodYellow"
+        MouseMove="Window_MouseMove">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="6*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Tulajdonságok" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" FontSize="20" />
+            <StackPanel Grid.Row="1" Grid.Column="0">
+                <Label FontSize="16"  Content="Kitartás" />
+                <Label FontSize="16" Content="Intelligencia" />        
+                <Label FontSize="16" Content="Lélekerő"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <Label FontSize="16" Content="{Binding Kitartas}"  HorizontalAlignment="Right"/>
+                <Label FontSize="16" Content="{Binding Intelligencia}" HorizontalAlignment="Right"/>
+                <Label FontSize="16" Content="{Binding Lelekero}" HorizontalAlignment="Right"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="2">
+                <Button FontSize="16" Foreground="Red" Background="Beige"  FontWeight="ExtraBold" Content="+" Margin="10,2" Click="KitartasBtn"/>
+                <Button FontSize="16" Foreground="Red" Background="Beige"  FontWeight="ExtraBold" Content="+" Margin="10,2" Click="IntelligenciaBtn"/>
+                <Button FontSize="16" Foreground="Red" Background="Beige"  FontWeight="ExtraBold" Content="+" Margin="10,2" Click="LelekeroBtn"/>
+            </StackPanel>
+            <Label Grid.Row="2" FontSize="16" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="Elosztható tulajdonságpontok" />
+            <Label FontSize="16" Grid.Row="2" Grid.Column="3" Content="{Binding Tulpont}" />
+         
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="6*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="4*" />
+            </Grid.ColumnDefinitions>
+            <Label Content="Varázslatok" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" FontSize="20" />
+            <StackPanel Grid.Row="1" Grid.Column="0">
+                <Label FontSize="16"  Content="Tűzlövedék" />
+                <Label FontSize="16" Content="Jégfuvallat" />
+                <Label FontSize="16" Content="Mágikus akna"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <Label FontSize="16" Content="{Binding Tuzlovedek}" HorizontalAlignment="Right" />
+                <Label FontSize="16" Content="{Binding Jegfuvallat}" HorizontalAlignment="Right" />
+                <Label FontSize="16" Content="{Binding Akna}" HorizontalAlignment="Right"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="2">
+                <Button FontSize="16" Foreground="Red" Background="Beige"  FontWeight="ExtraBold" Content="+" Margin="10,2" Click="TuzlovedekBtn"/>
+                <Button FontSize="16" Foreground="Red" Background="Beige"  FontWeight="ExtraBold" Content="+" Margin="10,2" Click="JegfuvallatBtn"/>
+                <Button FontSize="16" Foreground="Red" Background="Beige"  FontWeight="ExtraBold" Content="+" Margin="10,2" Click="AknaBtn"/>
+            </StackPanel>
+            <Label Grid.Row="2" FontSize="16" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Content="Elosztható varázslatpontok" />
+            <Label FontSize="16" Grid.Row="2" Grid.Column="2" Content="{Binding Varpont}" />
+
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+  
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+
+            
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0"> 
+                <Label FontSize="16" Content="Max Életerő" />
+                <Label FontSize="16" Content="Max Mana" />
+                <Label FontSize="16" Content="Mana Regeneráció" />
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="1">
+                <Label FontSize="16" Content="{Binding MaxHP}" />
+                <Label  FontSize="16" Content="{Binding MaxMP}"/>
+
+                <Label  FontSize="16" ContentStringFormat="{}{0:0.0} /sec" Content="{Binding MPregen}"/>
+            </StackPanel>
+
+        </Grid>
+        
+        <TextBlock TextWrapping="Wrap" x:Name="uzenetBlock" FontSize="16" Grid.Row="1" Grid.Column="1" Margin="20,20,0,0"/>
+    </Grid>
+</Window>
